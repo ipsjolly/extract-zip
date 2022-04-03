@@ -1,5 +1,37 @@
 # extract-zip
 
+Forked from original extract-zip by maxogden. Created this package to allow Relative paths as target.
+
+In Original extract-zip you can't use like follow:
+
+```
+"scripts": {
+    "extract-my-files": "extract-zip ./my-images.zip ./src/assets",
+},
+```
+
+giving this error:
+
+error! Error: Target directory is expected to be absolute
+
+But using extract-zip-relative-path you will be able to extract your zip file at any relative path.
+
+THIS CHANGE IS NOT TESTED, NOT SURE WHY THIS CHECK WAS THERE WHICH I COMMENTED OUT :P
+
+```
+module.exports = async function (zipPath, opts) {
+  debug('creating target directory', opts.dir)
+
+  // if (!path.isAbsolute(opts.dir)) {
+  //   throw new Error('Target directory is expected to be absolute')
+  // }
+
+  await fs.mkdir(opts.dir, { recursive: true })
+  opts.dir = await fs.realpath(opts.dir)
+  return new Extractor(zipPath, opts).extract()
+}
+```
+
 Unzip written in pure JavaScript. Extracts a zip into a directory. Available as a library or a command line program.
 
 Uses the [`yauzl`](http://npmjs.org/yauzl) ZIP parser.
@@ -27,12 +59,12 @@ npm install extract-zip -g
 ## JS API
 
 ```javascript
-const extract = require('extract-zip')
+const extract = require("extract-zip");
 
-async function main () {
+async function main() {
   try {
-    await extract(source, { dir: target })
-    console.log('Extraction complete')
+    await extract(source, { dir: target });
+    console.log("Extraction complete");
   } catch (err) {
     // handle any errors
   }
