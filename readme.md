@@ -1,4 +1,4 @@
-# extract-zip
+# extract-zip-relative-path
 
 Forked from original extract-zip by maxogden. Created this package to allow Relative paths as target.
 
