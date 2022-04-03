@@ -1,6 +1,6 @@
 {
   "name": "extract-zip-relative-path",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Forked from original extract-zip, but commneted isAbsolute to allow relative path for extraction of files",
   "main": "index.js",
   "types": "index.d.ts",
