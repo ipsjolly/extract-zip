@@ -1,7 +1,7 @@
 {
-  "name": "extract-zip",
-  "version": "2.0.1",
-  "description": "unzip a zip file into a directory using 100% javascript",
+  "name": "extract-zip-relative-path",
+  "version": "2.0.1.1",
+  "description": "Forked from extract-zip, but commneted isAbsolute to allow relative path for extraction of files",
   "main": "index.js",
   "types": "index.d.ts",
   "bin": {
@@ -22,7 +22,7 @@
   ],
   "author": "max ogden",
   "license": "BSD-2-Clause",
-  "repository": "maxogden/extract-zip",
+  "repository": "ipsjolly/extract-zip-relative-path",
   "keywords": [
     "unzip",
     "zip",
