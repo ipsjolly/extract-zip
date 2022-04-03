@@ -163,9 +163,10 @@ class Extractor {
 module.exports = async function (zipPath, opts) {
   debug('creating target directory', opts.dir)
 
-  if (!path.isAbsolute(opts.dir)) {
-    throw new Error('Target directory is expected to be absolute')
-  }
+  // Commented out to allow relative path as well by @Ipsjolly
+  // if (!path.isAbsolute(opts.dir)) {
+  //   throw new Error('Target directory is expected to be absolute')
+  // }
 
   await fs.mkdir(opts.dir, { recursive: true })
   opts.dir = await fs.realpath(opts.dir)
